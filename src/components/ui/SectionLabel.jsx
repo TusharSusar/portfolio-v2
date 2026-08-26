@@ -1,3 +1,12 @@
-export default function SectionLabel({ children, className = '' }) {
-  return <span className={`section-label ${className}`.trim()}>{children}</span>
+export default function SectionLabel({ eyebrow, title }) {
+  return (
+    <div className="mb-16">
+      <span className="font-mono text-xs uppercase tracking-widest text-primary">
+        {eyebrow}
+      </span>
+      <h2 className="font-heading text-4xl sm:text-5xl font-bold mt-3 text-foreground">
+        {title}
+      </h2>
+    </div>
+  );
 }

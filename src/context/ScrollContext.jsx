@@ -1,27 +1,30 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-const ScrollContext = createContext(null)
+const ScrollContext = createContext({ direction: "up", scrolled: false });
 
 export function ScrollProvider({ children }) {
-  const [scrollY, setScrollY] = useState(0)
+  const [direction, setDirection] = useState("up");
+  const [scrolled, setScrolled] = useState(false);
+  const lastY = useRef(0);
 
-  const value = useMemo(
-    () => ({
-      scrollY,
-      setScrollY,
-    }),
-    [scrollY],
-  )
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      if (Math.abs(y - lastY.current) > 5) {
+        setDirection(y > lastY.current ? "down" : "up");
+        lastY.current = y;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  return <ScrollContext.Provider value={value}>{children}</ScrollContext.Provider>
+  return (
+    <ScrollContext.Provider value={{ direction, scrolled }}>
+      {children}
+    </ScrollContext.Provider>
+  );
 }
 
-export function useScroll() {
-  const context = useContext(ScrollContext)
-
-  if (!context) {
-    throw new Error('useScroll must be used within a ScrollProvider')
-  }
-
-  return context
-}
+export const useScrollDirection = () => useContext(ScrollContext);

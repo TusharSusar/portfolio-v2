@@ -1,43 +1,21 @@
-export const portfolioConfig = {
-  name: 'Rohit Sharma',
-  role: 'Frontend Developer',
-  bio: 'I build smooth, high-impact interfaces with a focus on performance, usability, and storytelling.',
-  email: 'hello@rohit.dev',
-  resumeLink: '/resume.pdf',
-  socials: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    dribbble: 'https://dribbble.com',
+export const profile = {
+  name: "Rohit Sharma",
+  role: "Full Stack Web Developer",
+  tagline: "Creating innovative web solutions with modern technologies",
+  bio: "Passionate developer with expertise in React, Firebase, and modern web technologies. I transform complex problems into beautiful, functional digital experiences that users love.",
+
+  contact: {
+    email: "rohitsharma@gmail.com",
+    phone: "+91 8605-810-804",
+    location: "Mumbai, Maharashtra, India",
   },
-  skills: ['React', 'JavaScript', 'GSAP', 'CSS', 'UI Design', 'Accessibility'],
-  projects: [
-    {
-      title: 'Project One',
-      summary: 'A high-conversion marketing site with custom motion and content-driven design.',
-      stack: ['React', 'GSAP', 'Tailwind'],
-      link: '#',
-      image: '',
-    },
-    {
-      title: 'Project Two',
-      summary: 'A dashboard and analytics experience tuned for clarity, speed, and visual storytelling.',
-      stack: ['React', 'Charts', 'UX'],
-      link: '#',
-      image: '',
-    },
-  ],
-  experience: [
-    {
-      company: 'Creative Studio',
-      role: 'Frontend Developer',
-      period: '2023 — Present',
-      description: 'Crafted engaging product experiences and front-end systems for marketing and SaaS teams.',
-    },
-    {
-      company: 'Digital Agency',
-      role: 'UI Engineer',
-      period: '2021 — 2023',
-      description: 'Built branded interfaces, landing pages, and interactive product experiences.',
-    },
-  ],
-}
+
+  // ⚠️ DUMMY — replace with real resume file/link before deploying
+  resumeUrl: "/resume.pdf",
+
+  socialLinks: {
+    github: "https://github.com/RohitSharma",
+    linkedin: "https://www.linkedin.com/in/RohitSharma",
+    mail: "mailto:rohitsharma@gmail.com",
+  },
+};

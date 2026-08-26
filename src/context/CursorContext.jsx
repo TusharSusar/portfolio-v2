@@ -1,27 +1,30 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-const CursorContext = createContext(null)
+const CursorContext = createContext({ x: 0, y: 0 });
 
 export function CursorProvider({ children }) {
-  const [cursorVariant, setCursorVariant] = useState('default')
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const frame = useRef(null);
 
-  const value = useMemo(
-    () => ({
-      cursorVariant,
-      setCursorVariant,
-    }),
-    [cursorVariant],
-  )
+  useEffect(() => {
+    const handleMove = (e) => {
+      if (frame.current) cancelAnimationFrame(frame.current);
+      frame.current = requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      });
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      if (frame.current) cancelAnimationFrame(frame.current);
+    };
+  }, []);
 
-  return <CursorContext.Provider value={value}>{children}</CursorContext.Provider>
+  return (
+    <CursorContext.Provider value={position}>
+      {children}
+    </CursorContext.Provider>
+  );
 }
 
-export function useCursor() {
-  const context = useContext(CursorContext)
-
-  if (!context) {
-    throw new Error('useCursor must be used within a CursorProvider')
-  }
-
-  return context
-}
+export const useCursor = () => useContext(CursorContext);
