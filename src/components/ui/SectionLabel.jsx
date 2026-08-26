@@ -1,6 +1,6 @@
-export default function SectionLabel({ eyebrow, title }) {
+export default function SectionLabel({ eyebrow, title, className = "" }) {
   return (
-    <div className="mb-16">
+    <div className={`mb-16 ${className}`.trim()}>
       <span className="font-mono text-xs uppercase tracking-widest text-primary">
         {eyebrow}
       </span>
