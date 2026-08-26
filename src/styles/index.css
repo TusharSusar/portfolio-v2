@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e6c16a;
+  --color-primary-hover: #ffd662;
+  --color-primary-muted: #dab060;
+  --color-primary-dim: #aa6c39;
+  --color-primary-deep: #ce9f56;
+
+  --color-background: #030303;
+  --color-surface: #0d0d0f;
+  --color-foreground: #f5f5f0;
+  --color-muted-foreground: #8a8a8a;
+
+  --color-success: #2e7d32;
+  --color-error: #d32f2f;
+
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-md: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-body antialiased;
+  background: radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(230, 193, 106, 0.08),
+      transparent
+    ),
+    #030303;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #e6c16a;
+  color: #030303;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+::-webkit-scrollbar-thumb {
+  background: #aa6c39;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
