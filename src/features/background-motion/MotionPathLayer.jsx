@@ -15,13 +15,18 @@ export default function MotionPathLayer() {
 
   useGSAP(
     () => {
+      if (!containerRef.current) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       const dots = containerRef.current.querySelectorAll(".mp-dot");
       dots.forEach((dot, i) => {
         const path = paths[i % paths.length];
         gsap.to(dot, {
-          motionPath: { path, align: path, alignOrigin: [0.5, 0.5] },
+          motionPath: {
+            path,
+            align: "self",
+            alignOrigin: [0.5, 0.5],
+          },
           duration: gsap.utils.random(18, 30),
           repeat: -1,
           ease: "none",

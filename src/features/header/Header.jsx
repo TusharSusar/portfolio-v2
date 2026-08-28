@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      className={`fixed top-0 lg:top-5 left-0 right-0 z-50 w-auto lg:mx-20 lg:rounded-full transition-colors duration-300 lg:border lg:border-primary-dim/30 ${
         scrolled
           ? "bg-background/70 backdrop-blur-md border-b border-primary-dim/20"
           : ""
@@ -51,7 +51,7 @@ export default function Header() {
           onClick={() => scrollToSection("hero")}
           className="font-heading text-lg font-semibold tracking-wide text-foreground"
         >
-          R<span className="text-primary">.</span>
+          T<span className="text-primary">.</span>
         </button>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -59,7 +59,7 @@ export default function Header() {
             <li key={item.id}>
               <button
                 onClick={() => scrollToSection(item.id)}
-                className="relative text-sm text-muted-foreground hover:text-foreground transition-colors group"
+                className="relative text-sm text-muted-foreground hover:text-foreground transition-colors group  cursor-pointer"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
@@ -73,7 +73,7 @@ export default function Header() {
             href={profile.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 rounded-md border border-primary-dim/40 px-4 py-2 text-sm text-primary hover:bg-primary hover:text-background transition-all duration-300"
+            className="hidden sm:inline-flex items-center gap-2 rounded-md border border-primary-dim/40 px-4 py-2 text-sm text-primary hover:bg-primary-muted hover:text-background transition-all duration-300"
           >
             <Download size={16} /> Resume
           </a>
