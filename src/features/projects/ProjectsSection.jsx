@@ -36,11 +36,10 @@ export default function ProjectsSection() {
         });
       });
 
-      gsap.from(".project-heading .char", {
+      gsap.from(".project-heading", {
         opacity: 0,
-        y: 60,
-        stagger: 0.02,
-        duration: 0.6,
+        y: 40,
+        duration: 0.7,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -54,7 +53,11 @@ export default function ProjectsSection() {
   return (
     <section id="projects" ref={sectionRef} className="relative z-10 px-6 py-32">
       <div className="max-w-6xl mx-auto">
-        <SectionLabel eyebrow="Selected Work" title="Projects that shipped." />
+        <SectionLabel
+          eyebrow="Selected Work"
+          title="Projects that shipped."
+          className="project-heading"
+        />
       </div>
 
       <div className="max-w-6xl mx-auto relative">

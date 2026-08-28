@@ -33,7 +33,7 @@ export default function DotGridBackground() {
         className="absolute inset-0 opacity-[0.15]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #E6C16A 1px, transparent 1px)",
+            "radial-gradient(circle, #E6C16A 1px, transparent 1.5px)",
           backgroundSize: "32px 32px",
         }}
       />

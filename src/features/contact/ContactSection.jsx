@@ -2,10 +2,12 @@ import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 import ContactForm from "./ContactForm";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { profile } from "@/data/portfolio.config";
+import DotGridBackground from "../hero/DotGridBackground";
 
 export default function ContactSection() {
   return (
     <section id="contact" className="relative z-10 px-6 py-32">
+      <DotGridBackground />
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
         <div>
           <SectionLabel eyebrow="Get in Touch" title="Let's build something great." />
@@ -20,9 +22,9 @@ export default function ContactSection() {
             >
               <Mail size={18} className="text-primary" /> {profile.contact.email}
             </a>
-            <span className="flex items-center gap-3 text-sm text-foreground/80">
+            {/* <span className="flex items-center gap-3 text-sm text-foreground/80">
               <Phone size={18} className="text-primary" /> {profile.contact.phone}
-            </span>
+            </span> */}
             <span className="flex items-center gap-3 text-sm text-foreground/80">
               <MapPin size={18} className="text-primary" /> {profile.contact.location}
             </span>

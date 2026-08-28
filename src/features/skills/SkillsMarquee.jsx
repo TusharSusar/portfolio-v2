@@ -12,9 +12,13 @@ export default function SkillsMarquee() {
     () => {
       const track = trackRef.current;
       const width = track.scrollWidth / 2;
-      gsap.to(track, {
+      gsap.set(track, {
         x: -width,
-        duration: 30,
+      });
+
+      gsap.to(track, {
+        x: 0,
+        duration: 50,
         ease: "none",
         repeat: -1,
       });

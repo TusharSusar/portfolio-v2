@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import Eye from "./Eye";
+import DotGridBackground from "../hero/DotGridBackground";
 
 export default function EyeTrackerSection() {
   const sectionRef = useRef(null);
@@ -36,6 +37,7 @@ export default function EyeTrackerSection() {
       ref={sectionRef}
       className="relative z-10 min-h-screen flex flex-col items-center justify-center gap-8 bg-background"
     >
+      <DotGridBackground />
       <span className="eye-fade font-mono text-xs uppercase tracking-[0.3em] text-primary">
         Always Watching The Details
       </span>
