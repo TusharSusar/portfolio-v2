@@ -16,11 +16,14 @@ export default function ContactForm() {
           gsap.to(field, { borderColor: "#E6C16A", duration: 0.3 });
         });
         input?.addEventListener("blur", () => {
-          gsap.to(field, { borderColor: "rgba(170,108,57,0.3)", duration: 0.3 });
+          gsap.to(field, {
+            borderColor: "rgba(170,108,57,0.3)",
+            duration: 0.3,
+          });
         });
       });
     },
-    { scope: formRef }
+    { scope: formRef },
   );
 
   const handleSubmit = (e) => {
@@ -71,11 +74,7 @@ export default function ContactForm() {
         disabled={loading}
         className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-background font-medium px-6 py-3 hover:bg-primary-hover transition-colors disabled:opacity-60"
       >
-        {loading ? (
-          <Loader2 size={18} className="animate-spin" />
-        ) : (
-          <Send size={18} />
-        )}
+        {loading && <Loader2 size={18} className="animate-spin" />}
         {loading ? "Sending..." : "Send Message"}
       </button>
     </form>
