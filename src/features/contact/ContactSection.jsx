@@ -7,7 +7,7 @@ import DotGridBackground from "../hero/DotGridBackground";
 export default function ContactSection() {
   return (
     <section id="contact" className="relative z-10 px-6 py-32">
-      <DotGridBackground />
+      {/* <DotGridBackground /> */}
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
         <div>
           <SectionLabel eyebrow="Get in Touch" title="Let's build something great." />

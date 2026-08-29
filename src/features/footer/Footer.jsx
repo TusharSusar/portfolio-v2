@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative z-10 border-t border-primary-dim/20 px-6 py-12 mt-20"
+      className="relative z-10 border-t border-primary-dim/20 px-6 py-12"
     >
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="text-center sm:text-left">

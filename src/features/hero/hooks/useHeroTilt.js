@@ -2,13 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 
-/**
- * Cursor-driven perspective tilt.
- * Rotates a `transform-style: preserve-3d` wrapper based on pointer
- * position within the section. Children placed at different
- * translateZ depths automatically get parallax via CSS perspective.
- */
-export function useHeroTilt(max = 10) {
+export function useHeroTilt(max = 6) {
   const sectionRef = useRef(null);
   const stageRef = useRef(null);
 
@@ -19,6 +13,9 @@ export function useHeroTilt(max = 10) {
 
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     if (isTouch) return;
+
+    // Scale up so rotated edges never expose the background
+    gsap.set(stage, { scale: 1.12 });
 
     const rotateX = gsap.quickTo(stage, "rotationX", {
       duration: 0.8,

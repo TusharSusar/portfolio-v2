@@ -19,24 +19,24 @@ export const skillCategories = [
     id: "backend",
     title: "Backend & APIs",
     icon: "Server",
-    skills: ["Firebase", "REST APIs", "Node.js"], // add more as they come
+    skills: ["Firebase", "REST APIs", "Java", "Spring boot", "Hibernate"], // add more as they come
   },
   {
     id: "state",
     title: "State Management",
     icon: "GitBranch",
-    skills: ["Redux", "Context API"],
+    skills: ["Context API", "Redux Toolkit", "Zustand"],
   },
   {
     id: "tools",
     title: "Tools & Workflow",
     icon: "Wrench",
-    skills: ["Git & GitHub", "Vite", "Netlify", "Figma"],
+    skills: ["Git & GitHub", "Netlify"],
   },
   {
     id: "design",
     title: "Design & Optimization",
     icon: "Sparkles",
-    skills: ["UI/UX Design", "Performance Optimization", "Animation (GSAP)"],
+    skills: ["UI/UX Design", "Performance Optimization"],
   },
 ];

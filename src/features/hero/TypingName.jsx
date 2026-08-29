@@ -22,9 +22,9 @@ export default function TypingName({ text, className = "", delay = 0.3 }) {
   );
 
   return (
-    <span ref={containerRef} className={`inline-block ${className}`}>
+    <span ref={containerRef} className="inline-block">
       {text.split("").map((char, i) => (
-        <span key={i} className="char inline-block">
+        <span key={i} className={`char inline-block ${className}`}>
           {char === " " ? "\u00A0" : char}
         </span>
       ))}

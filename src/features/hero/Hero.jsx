@@ -9,7 +9,7 @@ import { useMagneticButton } from "./hooks/useMagneticButton";
 import { profile } from "@/data/portfolio.config";
 
 export default function Hero() {
-  const { sectionRef, stageRef } = useHeroTilt(9);
+  const { sectionRef, stageRef } = useHeroTilt(15);
   const viewWorkRef = useMagneticButton(0.25);
   const contactRef = useMagneticButton(0.25);
 
@@ -61,7 +61,7 @@ export default function Hero() {
               <Sparkles size={14} /> {profile.role}
             </span>
 
-            <h1 className="font-heading font-bold text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95]">
+            <h1 className="font-hero-heading font-bold text-7xl md:text-8xl tracking-tight leading-[0.95]">
               <span className="hero-fade block">
                 <TypingName text={firstName} className="text-foreground" delay={0.3} />
               </span>
@@ -78,7 +78,7 @@ export default function Hero() {
 
             <div className="hero-fade h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-            <p className="hero-fade max-w-xl text-muted-foreground text-base sm:text-lg">
+            <p className="hero-fade max-w-xl font-heading text-muted-foreground text-base sm:text-lg">
               {profile.tagline}
             </p>
 
@@ -86,7 +86,7 @@ export default function Hero() {
               <a
                 ref={viewWorkRef}
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-md bg-primary text-background px-7 py-3.5 text-sm font-semibold hover:bg-primary-hover transition-colors duration-300 shadow-[0_0_30px_rgba(230,193,106,0.15)]"
+                className="inline-flex items-center gap-2 rounded-md bg-primary text-background px-7 py-3.5 text-sm font-semibold font-heading hover:bg-primary-hover transition-colors duration-300 shadow-[0_0_30px_rgba(230,193,106,0.15)]"
               >
                 View Work
                 <ArrowUpRight size={16} />
@@ -94,7 +94,7 @@ export default function Hero() {
               <a
                 ref={contactRef}
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-md border border-primary-dim/40 bg-background/40 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors duration-300"
+                className="inline-flex items-center gap-2 rounded-md border border-primary-dim/40 bg-background/40 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-colors duration-300 font-heading"
               >
                 Get In Touch
                 <ArrowUpRight size={16} />
