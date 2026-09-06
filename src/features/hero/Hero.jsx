@@ -1,12 +1,11 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import { profile } from "@/data/portfolio.config";
 import { gsap } from "@/lib/gsap";
+import { useGSAP } from "@gsap/react";
 import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
-import TypingName from "./TypingName";
 import DotGridBackground from "./DotGridBackground";
 import { useHeroTilt } from "./hooks/useHeroTilt";
 import { useMagneticButton } from "./hooks/useMagneticButton";
-import { profile } from "@/data/portfolio.config";
+import TypingName from "./TypingName";
 
 export default function Hero() {
   const { sectionRef, stageRef } = useHeroTilt(15);
@@ -23,7 +22,7 @@ export default function Hero() {
         y: 20,
         duration: 0.8,
         stagger: 0.15,
-        delay: 1.1,
+        delay: 0.5,
         ease: "power3.out",
       });
     },
@@ -69,14 +68,14 @@ export default function Hero() {
                 <span className="hero-fade block">
                   <TypingName
                     text={lastName}
-                    className="bg-gradient-to-r from-primary via-primary-hover to-primary-deep bg-clip-text text-transparent"
+                    className="bg-linear-to-r from-primary via-primary-hover to-primary-deep bg-clip-text text-transparent"
                     delay={0.55}
                   />
                 </span>
               )}
             </h1>
 
-            <div className="hero-fade h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <div className="hero-fade h-px w-24 bg-linear-to-r from-transparent via-primary to-transparent" />
 
             <p className="hero-fade max-w-xl font-heading text-muted-foreground text-base sm:text-lg">
               {profile.tagline}
