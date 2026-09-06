@@ -87,7 +87,7 @@ export default function Header() {
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-4 px-6 pb-6 bg-background/95 backdrop-blur-md border-b border-primary-dim/20">
+        <div className="md:hidden flex flex-col gap-4 p-6 bg-background/95 backdrop-blur-md border-b border-primary-dim/20">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -101,7 +101,7 @@ export default function Header() {
             href={profile.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-primary"
+            className="inline-flex items-center gap-2 text-primary border border-primary p-2 rounded-md"
           >
             <Download size={16} /> Resume
           </a>
