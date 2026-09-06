@@ -18,7 +18,7 @@ export const projects = [
     image: fencetrack,
     tech: ["React", "Tailwind CSS", "Google Maps API", "React Router"],
     links: {
-      github: "https://github.com/RohitSharma/Fenctrack-Geofencing",
+      github: "https://github.com/TusharSusar/Fenctrack-Geofencing",
       demo: "https://fencetrack.netlify.app/",
     },
     highlights: [
@@ -30,23 +30,23 @@ export const projects = [
   },
   {
     id: 2,
-    slug: "cognito-ai-quiz",
-    title: "Cognito — AI Quiz Platform",
+    slug: "cognito-ai-Chat",
+    title: "Cognito — AI Chat Platform",
     year: 2024,
     category: "AI / Web App",
     featured: true,
     description:
-      "Intelligent quiz generation platform powered by Gemini AI. Users can create customized quizzes instantly, with secure authentication and real-time data handling.",
+      "Intelligent response generation platform powered by Gemini AI. Users can get responses instantly, with secure authentication and real-time data handling.",
     image: cognito,
     tech: ["React", "Firebase", "Tailwind CSS", "Gemini API"],
     links: {
-      github: "https://github.com/RohitSharma/cognito",
+      github: "https://github.com/TusharSusar/Cognito",
       demo: "https://cognito-xi.netlify.app/",
     },
     highlights: [
-      "AI-powered question & answer generation",
+      "AI-powered response generation",
       "Firebase authentication & real-time database",
-      "Performance optimization with lazy loading",
+      "Performance optimization with chat searching & lazy loading",
     ],
   },
   {
@@ -66,7 +66,6 @@ export const projects = [
     },
     highlights: [
       "Real-time messaging via Firestore",
-      "Full authentication system",
       "Media file sharing support",
       "Live online/offline status indicators",
     ],

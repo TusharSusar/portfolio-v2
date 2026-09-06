@@ -12,10 +12,10 @@ export const experience = [
     location: "Onsite",
     type: "Full-time", // Full-time | Freelance | Internship | Contract
     bullets: [
-      "Placeholder achievement — replace with real impact statement.",
-      "Placeholder achievement — mention tech stack used.",
+      "Developed interactive React.js dashboards for real-time data visualization of industrial asset metrics, trend charts, health indicators, and performance analytics",
+      "Collaborated with cross-functional teams to improve UI responsiveness and data readability, enhancing overall user experience for field engineers and monitoring operators.",
     ],
-    techUsed: ["React", "Firebase", "Tailwind CSS"],
+    techUsed: ["React", "Firebase", "Tailwind CSS", "Tanstack Query", "Zustand", "Charts Libs" ],
   },
   {
     id: 2,
@@ -26,9 +26,8 @@ export const experience = [
     location: "Onsite",
     type: "Full-time", // Full-time | Freelance | Internship | Contract
     bullets: [
-      "Placeholder achievement — replace with real impact statement.",
-      "Placeholder achievement — quantify where possible (e.g. reduced load time by 40%).",
-      "Placeholder achievement — mention tech stack used.",
+      "Built reusable React.js chart components to display time-series  sensor data, enabling stakeholders to track health trends across configurable time ranges.",
+      "Assisted in designing responsive frontend layouts for cloud-connected monitoring interfaces, ensuring consistent performance across desktop and tablet viewports.",
     ],
     techUsed: ["React", "Firebase", "Tailwind CSS"],
   },
@@ -37,12 +36,12 @@ export const experience = [
     role: "Cloud Conmputing Intern",
     company: "Sumago Infotech",
     logo: null, // pass an image import, or leave null to fallback to initials avatar
-    duration: { start: "Oct 2025", end: "Present" },
+    duration: { start: "Aug 2025", end: "Oct 2025" },
     location: "Onsite",
     type: "Full-time", // Full-time | Freelance | Internship | Contract
     bullets: [
-      "Placeholder achievement — replace with real impact statement.",
-      "Placeholder achievement — quantify where possible (e.g. reduced load time by 40%).",
+      "Architected AWS infrastructure (EC2, VPC) with least-privilege IAM policies, cutting provisioning time by 40% and achieving 100% security compliance.",
+      "Deployed a Spring Boot backend on secure EC2 instances using custom VPC networking and SSH to validate real-world production readiness.",
     ],
     techUsed: [
       "AWS",
@@ -58,10 +57,21 @@ export const experience = [
     role: "Java Full stack Intern",
     company: "Softcrowd Technologies",
     logo: null, // pass an image import, or leave null to fallback to initials avatar
-    duration: { start: "Aug 2026", end: "Present" },
+    duration: { start: "Dec 2024", end: "Jan 2025" },
     location: "Onsite",
     type: "Full-time", // Full-time | Freelance | Internship | Contract
-    bullets: ["Placeholder achievement — replace with real impact statement."],
-    techUsed: ["React", "Firebase", "Tailwind CSS"],
+    bullets: [
+      "Built full-featured social media application in React.js achieving 30\% improvement in data retrieval speed through optimized component architecture and efficient state management.",
+    ],
+    techUsed: [
+      "Java",
+      "Servlets",
+      "Spring boot",
+      "hibernate",
+      "React",
+      "JavaScript",
+      "Firebase",
+      "Tailwind CSS",
+    ],
   },
 ];

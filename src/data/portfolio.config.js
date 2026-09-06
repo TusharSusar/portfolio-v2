@@ -11,7 +11,7 @@ export const profile = {
   },
 
   // ⚠️ DUMMY — replace with real resume file/link before deploying
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Tushar_Susar_Resume_07-09-26.pdf",
 
   socialLinks: {
     github: "https://github.com/TusharSusar",
