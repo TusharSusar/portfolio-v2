@@ -9,6 +9,9 @@ import Hero from "@/features/hero/Hero";
 import Footer from "@/features/footer/Footer";
 import Loader from "./components/ui/loader";
 
+const ScrollProgress = lazy(() =>
+  import("./components/ui/horizantal-scrollbar")
+);
 // Load below-the-fold / heavier sections lazily
 const SkillsMarquee = lazy(() =>
   import("@/features/skills/SkillsMarquee")
@@ -38,6 +41,7 @@ export default function App() {
           <MotionPathLayer />
         </Suspense>
         {/* <CustomCursor /> */}
+        <ScrollProgress />
         <Header />
         <main className="relative">
           <Hero />
@@ -52,7 +56,7 @@ export default function App() {
         <Footer />
         <Toaster
           theme="dark"
-          position="top-center"
+          position="bottom-right"
           richColors
         />
       </CursorProvider>
