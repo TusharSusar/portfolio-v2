@@ -94,7 +94,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -103,7 +103,6 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #aa6c39;
-  border-radius: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
