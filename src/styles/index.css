@@ -86,6 +86,7 @@ body {
       transparent),
     #030303;
   overflow-x: hidden;
+  /* cursor: none; */
 }
 
 ::selection {
