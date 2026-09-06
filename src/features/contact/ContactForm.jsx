@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
-import { Send, Loader2 } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { Loader2 } from "lucide-react";
+import { useRef } from "react";
 import { useEmailJS } from "./useEmailJS";
 
 export default function ContactForm() {

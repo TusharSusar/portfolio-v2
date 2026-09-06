@@ -1,5 +1,5 @@
-import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { toast } from "sonner";
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
