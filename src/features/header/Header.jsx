@@ -3,6 +3,7 @@ import { Download, Menu, X } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import { useScrollDirection } from "@/context/ScrollContext";
 import { profile } from "@/data/portfolio.config";
+import { toast } from "sonner";
 
 const navItems = [
   { id: "hero", label: "Home" },
@@ -24,7 +25,7 @@ export default function Header() {
       ease: "power3.out",
     });
   }, [direction, scrolled]);
-
+  
   const scrollToSection = (id) => {
     setMenuOpen(false);
     const el = document.getElementById(id);
@@ -37,18 +38,32 @@ export default function Header() {
     }
   };
 
+  const handleNavCLick = (id) => {
+    scrollToSection(id)
+    toast.promise(
+      new Promise((resolve) => {
+        window.setTimeout(() => resolve({ name: "Here we are." }), 1000)
+      }),
+      {
+        loading: "Taking you there...",
+        success: (data) => `${data.name}.`,
+        error: "Could not Redirect.",
+      }
+    )
+  }
+
+
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 lg:top-5 left-0 right-0 z-50 w-auto lg:mx-20 lg:rounded-full transition-colors duration-300 lg:border lg:border-primary-dim/30 ${
-        scrolled
-          ? "bg-background/70 backdrop-blur-md border-b border-primary-dim/20"
-          : ""
-      }`}
+      className={`fixed top-0 lg:top-5 left-0 right-0 z-50 w-auto lg:mx-20 lg:rounded-full transition-colors duration-300 lg:border lg:border-primary-dim/30 ${scrolled
+        ? "bg-background/70 backdrop-blur-md border-b border-primary-dim/20"
+        : ""
+        }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <button
-          onClick={() => scrollToSection("hero")}
+          onClick={() => handleNavCLick("hero")}
           className="font-heading text-lg font-semibold tracking-wide text-foreground"
         >
           T<span className="text-primary">.</span>
@@ -58,7 +73,7 @@ export default function Header() {
           {navItems.map((item) => (
             <li key={item.id}>
               <button
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavCLick(item.id)}
                 className="relative text-sm text-muted-foreground hover:text-foreground transition-colors group  cursor-pointer"
               >
                 {item.label}
@@ -91,7 +106,7 @@ export default function Header() {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => handleNavCLick(item.id)}
               className="text-left text-muted-foreground hover:text-primary transition-colors"
             >
               {item.label}
