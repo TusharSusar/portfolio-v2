@@ -2,32 +2,59 @@ import { Toaster } from "sonner";
 import { CursorProvider } from "@/context/CursorContext";
 import { ScrollProvider } from "@/context/ScrollContext";
 
+import { lazy, Suspense } from "react";
+
 import Header from "@/features/header/Header";
 import Hero from "@/features/hero/Hero";
-import SkillsMarquee from "@/features/skills/SkillsMarquee";
-import ProjectsSection from "@/features/projects/ProjectsSection";
-import EyeTrackerSection from "@/features/eye-tracker/EyeTrackerSection";
-import ExperienceSection from "@/features/experience/ExperienceSection";
-import ContactSection from "@/features/contact/ContactSection";
 import Footer from "@/features/footer/Footer";
-import MotionPathLayer from "@/features/background-motion/MotionPathLayer";
+import Loader from "./components/ui/loader";
+
+// Load below-the-fold / heavier sections lazily
+const SkillsMarquee = lazy(() =>
+  import("@/features/skills/SkillsMarquee")
+);
+const ProjectsSection = lazy(() =>
+  import("@/features/projects/ProjectsSection")
+);
+const EyeTrackerSection = lazy(() =>
+  import("@/features/eye-tracker/EyeTrackerSection")
+);
+const ExperienceSection = lazy(() =>
+  import("@/features/experience/ExperienceSection")
+);
+const ContactSection = lazy(() =>
+  import("@/features/contact/ContactSection")
+);
+const MotionPathLayer = lazy(() =>
+  import("@/features/background-motion/MotionPathLayer")
+);
+// import CustomCursor from "./components/ui/custom-cursor";
 
 export default function App() {
   return (
     <ScrollProvider>
       <CursorProvider>
-        <MotionPathLayer />
+        <Suspense fallback={<Loader />}>
+          <MotionPathLayer />
+        </Suspense>
+        {/* <CustomCursor /> */}
         <Header />
         <main className="relative">
           <Hero />
-          <SkillsMarquee />
-          <ProjectsSection />
-          <EyeTrackerSection />
-          <ExperienceSection />
-          <ContactSection />
+          <Suspense fallback={<Loader />}>
+            <SkillsMarquee />
+            <ProjectsSection />
+            <EyeTrackerSection />
+            <ExperienceSection />
+            <ContactSection />
+          </Suspense>
         </main>
         <Footer />
-        <Toaster theme="dark" position="top-center" richColors />
+        <Toaster
+          theme="dark"
+          position="top-center"
+          richColors
+        />
       </CursorProvider>
     </ScrollProvider>
   );
