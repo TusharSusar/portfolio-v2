@@ -1,8 +1,8 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import Eye from "./Eye";
-import DotGridBackground from "../hero/DotGridBackground";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
+import Eye from './Eye';
+import DotGridBackground from '../hero/DotGridBackground';
 
 export default function EyeTrackerSection() {
   const sectionRef = useRef(null);
@@ -11,24 +11,24 @@ export default function EyeTrackerSection() {
     () => {
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: "top top",
-        end: "+=100%",
+        start: 'top top',
+        end: '+=100%',
         pin: true,
         pinSpacing: true,
       });
 
-      gsap.from(".eye-fade", {
+      gsap.from('.eye-fade', {
         opacity: 0,
         y: 30,
         duration: 0.8,
         stagger: 0.1,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 60%",
+          start: 'top 60%',
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -48,8 +48,8 @@ export default function EyeTrackerSection() {
       </div>
 
       <p className="eye-fade max-w-sm text-center text-sm text-muted-foreground px-6">
-        A small interaction layer that mirrors how I approach every project —
-        attentive to detail, responsive to feedback.
+        A small interaction layer that mirrors how I approach every project — attentive to detail,
+        responsive to feedback.
       </p>
     </section>
   );

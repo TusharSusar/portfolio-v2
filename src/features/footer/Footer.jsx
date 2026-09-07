@@ -1,8 +1,8 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
-import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
-import { profile } from "@/data/portfolio.config";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import { profile } from '@/data/portfolio.config';
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -13,30 +13,25 @@ export default function Footer() {
         y: 80,
         opacity: 0,
         duration: 1,
-        ease: "elastic.out(1, 0.5)",
+        ease: 'elastic.out(1, 0.5)',
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "top 90%",
+          start: 'top 90%',
         },
       });
     },
-    { scope: footerRef }
+    { scope: footerRef },
   );
 
   const scrollTop = () => {
-    gsap.to(window, { scrollTo: 0, duration: 1.2, ease: "power3.inOut" });
+    gsap.to(window, { scrollTo: 0, duration: 1.2, ease: 'power3.inOut' });
   };
 
   return (
-    <footer
-      ref={footerRef}
-      className="relative z-10 border-t border-primary-dim/20 px-6 py-12"
-    >
+    <footer ref={footerRef} className="relative z-10 border-t border-primary-dim/20 px-6 py-12">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="text-center sm:text-left">
-          <p className="font-heading text-lg font-semibold text-foreground">
-            {profile.name}
-          </p>
+          <p className="font-heading text-lg font-semibold text-foreground">{profile.name}</p>
           <p className="text-xs text-muted-foreground mt-1">
             © {new Date().getFullYear()} — Built with React, GSAP & a lot of coffee.
           </p>

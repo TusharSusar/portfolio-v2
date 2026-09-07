@@ -1,7 +1,7 @@
-import SectionLabel from "@/components/ui/SectionLabel";
-import { profile } from "@/data/portfolio.config";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import ContactForm from "./ContactForm";
+import SectionLabel from '@/components/ui/SectionLabel';
+import { profile } from '@/data/portfolio.config';
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 export default function ContactSection() {
   return (

@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { projects } from "./projects.data";
-import ProjectCard from "./ProjectCard";
-import SectionLabel from "@/components/ui/SectionLabel";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { projects } from './projects.data';
+import ProjectCard from './ProjectCard';
+import SectionLabel from '@/components/ui/SectionLabel';
 
 export default function ProjectsSection() {
   const sectionRef = useRef(null);
@@ -12,42 +12,42 @@ export default function ProjectsSection() {
     () => {
       // Make sure refs exist before GSAP runs
       if (!sectionRef.current) {
-        console.warn("Projects refs are missing");
+        console.warn('Projects refs are missing');
         return;
       }
-      const cards = gsap.utils.toArray(".project-card");
+      const cards = gsap.utils.toArray('.project-card');
 
       cards.forEach((card, i) => {
         if (i === cards.length - 1) return;
         ScrollTrigger.create({
           trigger: cards[i + 1],
-          start: "top bottom",
-          end: "top top",
+          start: 'top bottom',
+          end: 'top top',
           scrub: true,
           onUpdate: (self) => {
             gsap.to(card, {
               scale: 1 - self.progress * 0.08,
               opacity: 1 - self.progress * 0.4,
               filter: `brightness(${1 - self.progress * 0.5})`,
-              overwrite: "auto",
+              overwrite: 'auto',
               duration: 0.1,
             });
           },
         });
       });
 
-      gsap.from(".project-heading", {
+      gsap.from('.project-heading', {
         opacity: 0,
         y: 40,
         duration: 0.7,
-        ease: "power3.out",
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
+          start: 'top 70%',
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (

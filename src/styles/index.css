@@ -1,45 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sen:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sen:wght@400..800&display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-  font-family: "Bespoke Serif";
-  src: url("../assets/fonts/BespokeSerif_Complete/Fonts/TTF/BespokeSerif-Variable.ttf") format("truetype");
+  font-family: 'Bespoke Serif';
+  src: url('../assets/fonts/BespokeSerif_Complete/Fonts/TTF/BespokeSerif-Variable.ttf')
+    format('truetype');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "BespokeStencil Serif";
-  src: url("../assets/fonts/BespokeStencil_Complete/Fonts/TTF/BespokeStencil-VariableItalic.ttf") format("truetype");
+  font-family: 'BespokeStencil Serif';
+  src: url('../assets/fonts/BespokeStencil_Complete/Fonts/TTF/BespokeStencil-VariableItalic.ttf')
+    format('truetype');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Excon Serif";
-  src: url("../assets/fonts/Excon_Complete/Fonts/TTF/Excon-Variable.ttf") format("truetype");
-  font-style: normal; 
+  font-family: 'Excon Serif';
+  src: url('../assets/fonts/Excon_Complete/Fonts/TTF/Excon-Variable.ttf') format('truetype');
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Tanker Serif";
-  src: url("../assets/fonts/Tanker_Complete/Fonts/OTF/Tanker-Regular.otf") format("opentype");
+  font-family: 'Tanker Serif';
+  src: url('../assets/fonts/Tanker_Complete/Fonts/OTF/Tanker-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Telma Serif";
-  src: url("../assets/fonts/Telma_Complete/Fonts/TTF/Telma-Variable.ttf") format("opentype");
+  font-family: 'Telma Serif';
+  src: url('../assets/fonts/Telma_Complete/Fonts/TTF/Telma-Variable.ttf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "quilon Serif";
-  src: url("../assets/fonts/Quilon_Complete/Fonts/TTF/Quilon-Variable.ttf") format("opentype");
+  font-family: 'quilon Serif';
+  src: url('../assets/fonts/Quilon_Complete/Fonts/TTF/Quilon-Variable.ttf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -61,16 +63,16 @@
   --color-error: #d32f2f;
 
   /* --font-heading: "Sora", sans-serif; */
-  --font-heading: "Sen", serif;
-  --font-hero-heading: "BespokeStencil Serif", serif;
+  --font-heading: 'Sen', serif;
+  --font-hero-heading: 'BespokeStencil Serif', serif;
   /* --font-hero-heading: "BespokeSerif Serif", serif; */
   /* --font-hero-heading: "Telma Serif", serif; */
   /* --font-hero-heading: "Excon Serif", serif; */
   /* --font-hero-heading: "Tanker Serif", serif; */
   /* --font-hero-heading: "quilon Serif", serif; */
-  --font-sub-heading: "quilon Serif", serif   ;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sub-heading: 'quilon Serif', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   --radius-md: 6px;
 }
@@ -81,10 +83,8 @@ html {
 
 body {
   @apply bg-background text-foreground font-body antialiased;
-  background: radial-gradient(ellipse 80% 50% at 50% -10%,
-      rgba(230, 193, 106, 0.08),
-      transparent),
-    #030303;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(230, 193, 106, 0.08), transparent), #030303;
   overflow-x: hidden;
   /* cursor: none; */
 }
@@ -108,7 +108,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {

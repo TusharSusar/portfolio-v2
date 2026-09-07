@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
 
 export function useMagneticButton(strength = 0.3) {
   const ref = useRef(null);
@@ -9,11 +9,11 @@ export function useMagneticButton(strength = 0.3) {
     const el = ref.current;
     if (!el) return;
 
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
     if (isTouch) return;
 
-    const xTo = gsap.quickTo(el, "x", { duration: 0.45, ease: "power3.out" });
-    const yTo = gsap.quickTo(el, "y", { duration: 0.45, ease: "power3.out" });
+    const xTo = gsap.quickTo(el, 'x', { duration: 0.45, ease: 'power3.out' });
+    const yTo = gsap.quickTo(el, 'y', { duration: 0.45, ease: 'power3.out' });
 
     const handleMove = (e) => {
       const rect = el.getBoundingClientRect();
@@ -28,11 +28,11 @@ export function useMagneticButton(strength = 0.3) {
       yTo(0);
     };
 
-    el.addEventListener("mousemove", handleMove);
-    el.addEventListener("mouseleave", reset);
+    el.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', reset);
     return () => {
-      el.removeEventListener("mousemove", handleMove);
-      el.removeEventListener("mouseleave", reset);
+      el.removeEventListener('mousemove', handleMove);
+      el.removeEventListener('mouseleave', reset);
     };
   }, [strength]);
 

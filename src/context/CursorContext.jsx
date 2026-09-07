@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 const CursorContext = createContext({ x: 0, y: 0 });
 
@@ -13,18 +13,14 @@ export function CursorProvider({ children }) {
         setPosition({ x: e.clientX, y: e.clientY });
       });
     };
-    window.addEventListener("mousemove", handleMove);
+    window.addEventListener('mousemove', handleMove);
     return () => {
-      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener('mousemove', handleMove);
       if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, []);
 
-  return (
-    <CursorContext.Provider value={position}>
-      {children}
-    </CursorContext.Provider>
-  );
+  return <CursorContext.Provider value={position}>{children}</CursorContext.Provider>;
 }
 
 export const useCursor = () => useContext(CursorContext);

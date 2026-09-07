@@ -1,32 +1,32 @@
-import { profile } from "@/data/portfolio.config";
-import { gsap } from "@/lib/gsap";
-import { useGSAP } from "@gsap/react";
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
-import DotGridBackground from "./DotGridBackground";
-import { useHeroTilt } from "./hooks/useHeroTilt";
-import { useMagneticButton } from "./hooks/useMagneticButton";
-import TypingName from "./TypingName";
+import { profile } from '@/data/portfolio.config';
+import { gsap } from '@/lib/gsap';
+import { useGSAP } from '@gsap/react';
+import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
+import DotGridBackground from './DotGridBackground';
+import { useHeroTilt } from './hooks/useHeroTilt';
+import { useMagneticButton } from './hooks/useMagneticButton';
+import TypingName from './TypingName';
 
 export default function Hero() {
   const { sectionRef, stageRef } = useHeroTilt(15);
   const viewWorkRef = useMagneticButton(0.25);
   const contactRef = useMagneticButton(0.25);
 
-  const [firstName, ...rest] = profile.name.split(" ");
-  const lastName = rest.join(" ");
+  const [firstName, ...rest] = profile.name.split(' ');
+  const lastName = rest.join(' ');
 
   useGSAP(
     () => {
-      gsap.from(".hero-fade", {
+      gsap.from('.hero-fade', {
         opacity: 0,
         y: 20,
         duration: 0.8,
         stagger: 0.15,
         delay: 0.5,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -34,26 +34,19 @@ export default function Hero() {
       id="hero"
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
-      style={{ perspective: "1400px" }}
+      style={{ perspective: '1400px' }}
     >
       {/* 3D stage — rotates as one coherent block based on cursor position */}
-      <div
-        ref={stageRef}
-        className="absolute inset-0"
-        style={{ transformStyle: "preserve-3d" }}
-      >
+      <div ref={stageRef} className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
         {/* background sits furthest back */}
-        <div
-          className="absolute inset-0 scale-110"
-          style={{ transform: "translateZ(-140px)" }}
-        >
+        <div className="absolute inset-0 scale-110" style={{ transform: 'translateZ(-140px)' }}>
           <DotGridBackground />
         </div>
 
         {/* foreground content — closer to viewer, tilts more */}
         <div
           className="relative z-10 h-full flex items-center justify-center"
-          style={{ transform: "translateZ(50px)" }}
+          style={{ transform: 'translateZ(50px)' }}
         >
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 px-6">
             <span className="hero-fade inline-flex items-center gap-2 rounded-md border border-primary-dim/40 px-4 py-1.5 text-xs font-mono uppercase tracking-widest text-primary">

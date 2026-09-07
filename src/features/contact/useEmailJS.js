@@ -1,6 +1,6 @@
-import emailjs from "@emailjs/browser";
-import { useState } from "react";
-import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -17,7 +17,7 @@ export function useEmailJS() {
       formEl.reset();
     } catch (err) {
       console.error(err);
-      toast.error("Something went wrong. Please try again.");
+      toast.error('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }

@@ -1,4 +1,4 @@
-import { useEyeTracking } from "./useEyeTracking";
+import { useEyeTracking } from './useEyeTracking';
 
 export default function Eye() {
   const { eyeRef, pupilRef } = useEyeTracking(14);

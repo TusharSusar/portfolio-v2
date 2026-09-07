@@ -1,14 +1,14 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
 
 const paths = [
-  "M -100 100 Q 200 -50 500 150 T 1200 100 T 1800 300",
-  "M -100 400 Q 300 600 700 400 T 1400 500 T 1900 300",
-  "M -100 700 Q 400 500 800 750 T 1500 700 T 2000 600",
+  'M -100 100 Q 200 -50 500 150 T 1200 100 T 1800 300',
+  'M -100 400 Q 300 600 700 400 T 1400 500 T 1900 300',
+  'M -100 700 Q 400 500 800 750 T 1500 700 T 2000 600',
 ];
 
-const colors = ["#E6C16A", "#FFD662", "#DAB060", "#CE9F56", "#AA6C39"];
+const colors = ['#E6C16A', '#FFD662', '#DAB060', '#CE9F56', '#AA6C39'];
 
 export default function MotionPathLayer() {
   const containerRef = useRef(null);
@@ -16,25 +16,25 @@ export default function MotionPathLayer() {
   useGSAP(
     () => {
       if (!containerRef.current) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      const dots = containerRef.current.querySelectorAll(".mp-dot");
+      const dots = containerRef.current.querySelectorAll('.mp-dot');
       dots.forEach((dot, i) => {
         const path = paths[i % paths.length];
         gsap.to(dot, {
           motionPath: {
             path,
-            align: "self",
+            align: 'self',
             alignOrigin: [0.5, 0.5],
           },
           duration: gsap.utils.random(18, 30),
           repeat: -1,
-          ease: "none",
+          ease: 'none',
           delay: i * 1.5,
         });
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (

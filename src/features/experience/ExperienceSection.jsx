@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
-import { experience } from "./experience.data";
-import TimelineNode from "./TimelineNode";
-import SectionLabel from "@/components/ui/SectionLabel";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
+import { experience } from './experience.data';
+import TimelineNode from './TimelineNode';
+import SectionLabel from '@/components/ui/SectionLabel';
 
 export default function ExperienceSection() {
   const sectionRef = useRef(null);
@@ -13,7 +13,7 @@ export default function ExperienceSection() {
     () => {
       // Make sure refs exist before GSAP runs
       if (!sectionRef.current || !lineRef.current) {
-        console.warn("Experience refs are missing");
+        console.warn('Experience refs are missing');
         return;
       }
       gsap.fromTo(
@@ -21,40 +21,37 @@ export default function ExperienceSection() {
         { scaleY: 0 },
         {
           scaleY: 1,
-          transformOrigin: "top",
-          ease: "none",
+          transformOrigin: 'top',
+          ease: 'none',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 60%",
-            end: "bottom 80%",
+            start: 'top 60%',
+            end: 'bottom 80%',
             scrub: true,
           },
-        }
+        },
       );
 
-      gsap.utils.toArray(".timeline-item").forEach((item) => {
+      gsap.utils.toArray('.timeline-item').forEach((item) => {
         gsap.from(item, {
           opacity: 0,
           x: -30,
           duration: 0.6,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: item,
-            start: "top 80%",
+            start: 'top 80%',
           },
         });
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section id="experience" ref={sectionRef} className="relative z-10 px-6 py-32">
       <div className="max-w-4xl mx-auto">
-        <SectionLabel
-          eyebrow="Selected Experience"
-          title="A practice built through making."
-        />
+        <SectionLabel eyebrow="Selected Experience" title="A practice built through making." />
 
         <div className="relative pl-10">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-primary-dim/20" />

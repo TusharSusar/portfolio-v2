@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
 
 export function useTiltEffect(maxTilt = 12) {
   const ref = useRef(null);
@@ -9,13 +9,13 @@ export function useTiltEffect(maxTilt = 12) {
     const el = ref.current;
     if (!el) return;
 
-    const xTo = gsap.quickTo(el, "rotateY", {
+    const xTo = gsap.quickTo(el, 'rotateY', {
       duration: 0.6,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
-    const yTo = gsap.quickTo(el, "rotateX", {
+    const yTo = gsap.quickTo(el, 'rotateX', {
       duration: 0.6,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
 
     const handleMove = (e) => {
@@ -31,11 +31,11 @@ export function useTiltEffect(maxTilt = 12) {
       yTo(0);
     };
 
-    el.addEventListener("mousemove", handleMove);
-    el.addEventListener("mouseleave", reset);
+    el.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', reset);
     return () => {
-      el.removeEventListener("mousemove", handleMove);
-      el.removeEventListener("mouseleave", reset);
+      el.removeEventListener('mousemove', handleMove);
+      el.removeEventListener('mouseleave', reset);
     };
   }, []);
 

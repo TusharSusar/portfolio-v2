@@ -1,4 +1,4 @@
-import { Briefcase } from "lucide-react";
+import { Briefcase } from 'lucide-react';
 
 export default function TimelineNode({ item }) {
   return (

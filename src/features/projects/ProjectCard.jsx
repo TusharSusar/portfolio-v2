@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from 'lucide-react';
 
 export default function ProjectCard({ project, index }) {
   return (
@@ -10,9 +10,7 @@ export default function ProjectCard({ project, index }) {
         <h3 className="font-heading text-2xl md:text-3xl font-semibold mt-2 text-foreground">
           {project.title}
         </h3>
-        <p className="text-muted-foreground text-sm mt-4 leading-relaxed">
-          {project.description}
-        </p>
+        <p className="text-muted-foreground text-sm mt-4 leading-relaxed">{project.description}</p>
 
         <ul className="mt-5 space-y-2">
           {project.highlights.slice(0, 3).map((h, i) => (

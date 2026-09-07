@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { Download, Menu, X } from "lucide-react";
-import { gsap } from "@/lib/gsap";
-import { useScrollDirection } from "@/context/ScrollContext";
-import { profile } from "@/data/portfolio.config";
-import { toast } from "sonner";
+import { useEffect, useRef, useState } from 'react';
+import { Download, Menu, X } from 'lucide-react';
+import { gsap } from '@/lib/gsap';
+import { useScrollDirection } from '@/context/ScrollContext';
+import { profile } from '@/data/portfolio.config';
+import { toast } from 'sonner';
 
 const navItems = [
-  { id: "hero", label: "Home" },
-  { id: "projects", label: "Projects" },
-  { id: "eye-tracker", label: "Focus" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { id: 'hero', label: 'Home' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'eye-tracker', label: 'Focus' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -20,12 +20,12 @@ export default function Header() {
 
   useEffect(() => {
     gsap.to(headerRef.current, {
-      y: direction === "down" && scrolled ? "-120%" : "0%",
+      y: direction === 'down' && scrolled ? '-120%' : '0%',
       duration: 0.5,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   }, [direction, scrolled]);
-  
+
   const scrollToSection = (id) => {
     setMenuOpen(false);
     const el = document.getElementById(id);
@@ -33,37 +33,35 @@ export default function Header() {
       gsap.to(window, {
         duration: 1,
         scrollTo: { y: el, offsetY: 80 },
-        ease: "power2.inOut",
+        ease: 'power2.inOut',
       });
     }
   };
 
   const handleNavCLick = (id) => {
-    scrollToSection(id)
+    scrollToSection(id);
     toast.promise(
       new Promise((resolve) => {
-        window.setTimeout(() => resolve({ name: "Here we are." }), 1000)
+        window.setTimeout(() => resolve({ name: 'Here we are.' }), 1000);
       }),
       {
-        loading: "Taking you there...",
+        loading: 'Taking you there...',
         success: (data) => `${data.name}.`,
-        error: "Could not Redirect.",
-      }
-    )
-  }
-
+        error: 'Could not Redirect.',
+      },
+    );
+  };
 
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 lg:top-5 left-0 right-0 z-50 w-auto lg:mx-20 lg:rounded-full transition-colors duration-300 lg:border lg:border-primary-dim/30 ${scrolled
-        ? "bg-background/70 backdrop-blur-md border-b border-primary-dim/20"
-        : ""
-        }`}
+      className={`fixed top-0 lg:top-5 left-0 right-0 z-50 w-auto lg:mx-20 lg:rounded-full transition-colors duration-300 lg:border lg:border-primary-dim/30 ${
+        scrolled ? 'bg-background/70 backdrop-blur-md border-b border-primary-dim/20' : ''
+      }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <button
-          onClick={() => handleNavCLick("hero")}
+          onClick={() => handleNavCLick('hero')}
           className="font-heading text-lg font-semibold tracking-wide text-foreground"
         >
           T<span className="text-primary">.</span>
@@ -92,10 +90,7 @@ export default function Header() {
           >
             <Download size={16} /> Resume
           </a>
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
+          <button className="md:hidden text-foreground" onClick={() => setMenuOpen((v) => !v)}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>

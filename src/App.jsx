@@ -1,36 +1,22 @@
-import { Toaster } from "sonner";
-import { CursorProvider } from "@/context/CursorContext";
-import { ScrollProvider } from "@/context/ScrollContext";
+import { Toaster } from 'sonner';
+import { CursorProvider } from '@/context/CursorContext';
+import { ScrollProvider } from '@/context/ScrollContext';
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense } from 'react';
 
-import Header from "@/features/header/Header";
-import Hero from "@/features/hero/Hero";
-import Footer from "@/features/footer/Footer";
-import Loader from "./components/ui/loader";
+import Header from '@/features/header/Header';
+import Hero from '@/features/hero/Hero';
+import Footer from '@/features/footer/Footer';
+import Loader from './components/ui/loader';
 
-const ScrollProgress = lazy(() =>
-  import("./components/ui/horizantal-scrollbar")
-);
+const ScrollProgress = lazy(() => import('./components/ui/horizantal-scrollbar'));
 // Load below-the-fold / heavier sections lazily
-const SkillsMarquee = lazy(() =>
-  import("@/features/skills/SkillsMarquee")
-);
-const ProjectsSection = lazy(() =>
-  import("@/features/projects/ProjectsSection")
-);
-const EyeTrackerSection = lazy(() =>
-  import("@/features/eye-tracker/EyeTrackerSection")
-);
-const ExperienceSection = lazy(() =>
-  import("@/features/experience/ExperienceSection")
-);
-const ContactSection = lazy(() =>
-  import("@/features/contact/ContactSection")
-);
-const MotionPathLayer = lazy(() =>
-  import("@/features/background-motion/MotionPathLayer")
-);
+const SkillsMarquee = lazy(() => import('@/features/skills/SkillsMarquee'));
+const ProjectsSection = lazy(() => import('@/features/projects/ProjectsSection'));
+const EyeTrackerSection = lazy(() => import('@/features/eye-tracker/EyeTrackerSection'));
+const ExperienceSection = lazy(() => import('@/features/experience/ExperienceSection'));
+const ContactSection = lazy(() => import('@/features/contact/ContactSection'));
+const MotionPathLayer = lazy(() => import('@/features/background-motion/MotionPathLayer'));
 // import CustomCursor from "./components/ui/custom-cursor";
 
 export default function App() {
@@ -54,11 +40,7 @@ export default function App() {
           </Suspense>
         </main>
         <Footer />
-        <Toaster
-          theme="dark"
-          position="bottom-right"
-          richColors
-        />
+        <Toaster theme="dark" position="bottom-right" richColors />
       </CursorProvider>
     </ScrollProvider>
   );

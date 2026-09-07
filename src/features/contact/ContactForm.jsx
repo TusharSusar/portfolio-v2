@@ -1,8 +1,8 @@
-import { gsap } from "@/lib/gsap";
-import { useGSAP } from "@gsap/react";
-import { Loader2 } from "lucide-react";
-import { useRef } from "react";
-import { useEmailJS } from "./useEmailJS";
+import { gsap } from '@/lib/gsap';
+import { useGSAP } from '@gsap/react';
+import { Loader2 } from 'lucide-react';
+import { useRef } from 'react';
+import { useEmailJS } from './useEmailJS';
 
 export default function ContactForm() {
   const formRef = useRef(null);
@@ -10,14 +10,14 @@ export default function ContactForm() {
 
   useGSAP(
     () => {
-      gsap.utils.toArray(".form-field").forEach((field) => {
-        const input = field.querySelector("input, textarea");
-        input?.addEventListener("focus", () => {
-          gsap.to(field, { borderColor: "#E6C16A", duration: 0.3 });
+      gsap.utils.toArray('.form-field').forEach((field) => {
+        const input = field.querySelector('input, textarea');
+        input?.addEventListener('focus', () => {
+          gsap.to(field, { borderColor: '#E6C16A', duration: 0.3 });
         });
-        input?.addEventListener("blur", () => {
+        input?.addEventListener('blur', () => {
           gsap.to(field, {
-            borderColor: "rgba(170,108,57,0.3)",
+            borderColor: 'rgba(170,108,57,0.3)',
             duration: 0.3,
           });
         });
@@ -75,7 +75,7 @@ export default function ContactForm() {
         className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-background font-medium px-6 py-3 hover:bg-primary-hover transition-colors disabled:opacity-60"
       >
         {loading && <Loader2 size={18} className="animate-spin" />}
-        {loading ? "Sending..." : "Send Message"}
+        {loading ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );

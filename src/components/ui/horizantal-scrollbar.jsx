@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export default function ScrollProgress() {
   const progressRef = useRef(null);
@@ -9,13 +9,9 @@ export default function ScrollProgress() {
     const updateProgress = () => {
       const scrollTop = window.scrollY;
 
-      const scrollHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-      const progress =
-        scrollHeight > 0
-          ? scrollTop / scrollHeight
-          : 0;
+      const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
 
       if (progressRef.current) {
         progressRef.current.style.transform = `scaleX(${progress})`;
@@ -31,14 +27,14 @@ export default function ScrollProgress() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, {
+    window.addEventListener('scroll', handleScroll, {
       passive: true,
     });
 
     updateProgress();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -48,8 +44,8 @@ export default function ScrollProgress() {
         ref={progressRef}
         className="h-full w-full origin-left bg-primary-deep"
         style={{
-          transform: "scaleX(0)",
-          willChange: "transform",
+          transform: 'scaleX(0)',
+          willChange: 'transform',
         }}
       />
     </div>

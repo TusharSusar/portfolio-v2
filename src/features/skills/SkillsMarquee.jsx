@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
-import { skillCategories } from "./skills.data";
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from '@/lib/gsap';
+import { skillCategories } from './skills.data';
 
 const allSkills = skillCategories.flatMap((c) => c.skills);
 
@@ -19,11 +19,11 @@ export default function SkillsMarquee() {
       gsap.to(track, {
         x: 0,
         duration: 50,
-        ease: "none",
+        ease: 'none',
         repeat: -1,
       });
     },
-    { scope: trackRef }
+    { scope: trackRef },
   );
 
   return (

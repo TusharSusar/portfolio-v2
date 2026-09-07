@@ -1,50 +1,43 @@
-import {
-    useEffect,
-    useState
-} from "react";
+import { useEffect, useState } from 'react';
 
 export default function CustomCursor() {
-    const [position, setPosition] = useState({
-        x: 0,
-        y: 0,
-    });
+  const [position, setPosition] = useState({
+    x: 0,
+    y: 0,
+  });
 
-    const [hovering, setHovering] = useState(false);
+  const [hovering, setHovering] = useState(false);
 
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            setPosition({
-                x: e.clientX,
-                y: e.clientY,
-            });
-        };
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
 
-        const handleMouseOver = (e) => {
-            const target = e.target;
+    const handleMouseOver = (e) => {
+      const target = e.target;
 
-            if (
-                target.closest(
-                    "a, button, input, textarea, select, [role='button']"
-                )
-            ) {
-                setHovering(true);
-            } else {
-                setHovering(false);
-            }
-        };
+      if (target.closest("a, button, input, textarea, select, [role='button']")) {
+        setHovering(true);
+      } else {
+        setHovering(false);
+      }
+    };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseover', handleMouseOver);
 
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseover", handleMouseOver);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
+    };
+  }, []);
 
-    return (<
-        div className={
-            `
+  return (
+    <div
+      className={`
         pointer-events-none
         fixed
         left-0
@@ -57,15 +50,11 @@ export default function CustomCursor() {
         transition-transform
         duration-200
         ease-out
-        ${hovering ? "scale-[2.5]" : "scale-100"}
-      `
-        }
-        style={
-            {
-                transform: `translate3d(${position.x - 6}px, ${position.y - 6
-                    }px, 0)`,
-            }
-        }
+        ${hovering ? 'scale-[2.5]' : 'scale-100'}
+      `}
+      style={{
+        transform: `translate3d(${position.x - 6}px, ${position.y - 6}px, 0)`,
+      }}
     />
-    );
+  );
 }

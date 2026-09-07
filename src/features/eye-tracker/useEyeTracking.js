@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
+import { useEffect, useRef } from 'react';
+import { gsap } from '@/lib/gsap';
 
 export function useEyeTracking(maxRadius = 12) {
   const eyeRef = useRef(null);
@@ -10,8 +10,8 @@ export function useEyeTracking(maxRadius = 12) {
     const eye = eyeRef.current;
     if (!pupil || !eye) return;
 
-    const xTo = gsap.quickTo(pupil, "x", { duration: 0.3, ease: "power3.out" });
-    const yTo = gsap.quickTo(pupil, "y", { duration: 0.3, ease: "power3.out" });
+    const xTo = gsap.quickTo(pupil, 'x', { duration: 0.3, ease: 'power3.out' });
+    const yTo = gsap.quickTo(pupil, 'y', { duration: 0.3, ease: 'power3.out' });
 
     const handleMove = (e) => {
       const rect = eye.getBoundingClientRect();
@@ -25,8 +25,8 @@ export function useEyeTracking(maxRadius = 12) {
       yTo(Math.sin(angle) * distance);
     };
 
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
   }, [maxRadius]);
 
   return { eyeRef, pupilRef };
